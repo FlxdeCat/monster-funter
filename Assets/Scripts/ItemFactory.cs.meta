@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 9e93da8672d3ab64eb27e45625ec724f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - meat: {fileID: 4284714324282676735, guid: 4b9a060578a1534408d2b1eb85d1a876, type: 3}
+  - potion: {fileID: 1273920939631509663, guid: 2016f05024e1d8d4dbf226bb50072b8c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
