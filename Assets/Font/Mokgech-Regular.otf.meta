@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8e6d162ab51d1cf468df910606c95806
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Mokgech
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 42172ce5beda0ba4894f0577b574e571, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
