@@ -10,8 +10,8 @@ public class Node
 
     public Node(Tile source, Tile destination)
     {
-        Source = source;
-        Destination = destination;
+        Src = source;
+        Dest = destination;
         CalculatePrice();
     }
 

@@ -569,7 +569,7 @@ public class MazeManager : MonoBehaviour
     {
         for (int i = 0; i < nodeList.Count; i++)
         {
-            if (nodeList[i].getPrice() > node.getPrice())
+            if (nodeList[i].Price > node.Price)
             {
                 nodeList.Insert(i, node);
                 return;
@@ -631,19 +631,19 @@ public class MazeManager : MonoBehaviour
         {
             if (first)
             {
-                connected.Add(node.getDestination());
-                connected.Add(node.getSource());
+                connected.Add(node.Dest);
+                connected.Add(node.Src);
                 graphRes.Add(node);
                 first = false;
             }
-            else if ((connected.Contains(node.getDestination()) && !connected.Contains(node.getSource())))
+            else if ((connected.Contains(node.Dest) && !connected.Contains(node.Src)))
             {
-                connected.Add(node.getSource());
+                connected.Add(node.Src);
                 graphRes.Add(node);
             }
-            else if ((!connected.Contains(node.getDestination()) && connected.Contains(node.getSource())))
+            else if ((!connected.Contains(node.Dest) && connected.Contains(node.Src)))
             {
-                connected.Add(node.getDestination());
+                connected.Add(node.Dest);
                 graphRes.Add(node);
             }
         }
@@ -652,7 +652,7 @@ public class MazeManager : MonoBehaviour
 
         foreach (Node node in graphRes)
         {
-            map = astar.Trace(node.getSource(), node.getDestination(), map);
+            map = astar.Trace(node.Src, node.Dest, map);
         }
     }
 

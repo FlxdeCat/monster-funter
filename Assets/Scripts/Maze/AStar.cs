@@ -17,9 +17,9 @@ public class AStar
     public void insertTile(Tile t){
         if (tileList.Contains(t)) return;
         for(int i = 0; i < tileList.Count; i++){
-            if(tileList[i].getHeur() > t.getHeur())
+            if(tileList[i].Heur > t.Heur)
             {
-                tileList.Insert(i, tile);
+                tileList.Insert(i, t);
                 return;
             }
         }
@@ -36,29 +36,29 @@ public class AStar
         return dMap;
     }
 
-    public char[,] trace(Tile s, Tile e, char[,] map){
+    public char[,] Trace(Tile s, Tile e, char[,] map){
         int[] dirX = { 0, 1, 0, -1 };
         int[] dirY = { 1, 0, -1, 0 };
         char[,] dMap = dupeMap(map);
         tileList = new List<Tile>();
 
-        Insert(s);
+        insertTile(s);
         Tile curr = null;
 
         while(tileList.Count > 0){
             curr = tileList[0];
             tileList.RemoveAt(0);
-            dMap[curr.getX(), curr.getY()] = 'X';
+            dMap[curr.X, curr.Y] = 'X';
 
-            if (curr.getX() == end.getX() && curr.getY() == end.getY()) return traceback(curr, map);
+            if (curr.X == e.X && curr.Y == e.Y) return traceback(curr, map);
 
             for(int i = 0; i < 4; i++){
-                if (curr.getX() + dirX[i] <= 0 || curr.getY() + dirY[i] <= 0 || curr.getX() + dirX[i] >= l || curr.getY() + dirY[i] >= w) continue;
-                if (dMap[curr.getX() + dirX[i], curr.getY() + dirY[i]] == '#' || dMap[curr.getX() + dirX[i], curr.getY() + dirY[i]] == ' ' || dMap[curr.getX() + dirX[i], curr.getY() + dirY[i]] == 'D'){
-                    Tile newTile = new Tile(curr.getX() + dirX[i], curr.getY() + dirY[i]);
-                    newTile.SetHeur(end.getX(), end.getY());
-                    newTile.setPrev(curr);
-                    Insert(newTile);
+                if (curr.X + dirX[i] <= 0 || curr.Y + dirY[i] <= 0 || curr.X + dirX[i] >= l || curr.Y + dirY[i] >= w) continue;
+                if (dMap[curr.X + dirX[i], curr.Y + dirY[i]] == '#' || dMap[curr.X + dirX[i], curr.Y + dirY[i]] == ' ' || dMap[curr.X + dirX[i], curr.Y + dirY[i]] == 'D'){
+                    Tile newTile = new Tile(curr.X + dirX[i], curr.Y + dirY[i]);
+                    newTile.SetHeur(e.X, e.Y);
+                    newTile.Prev = curr;
+                    insertTile(newTile);
                 }
             }
         }
@@ -69,8 +69,8 @@ public class AStar
         Tile curr = t;
         do{
             if (curr == null) break;
-            if(map[curr.getX(), curr.getY()] != 'D') map[curr.getX(), curr.getY()] = ' ';
-            curr = curr.getPrev();
+            if(map[curr.X, curr.Y] != 'D') map[curr.X, curr.Y] = ' ';
+            curr = curr.Prev;
         }while(true);
         return map;
     }
