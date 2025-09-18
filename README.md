@@ -19,4 +19,3 @@ Step into the role of unique characters, each with their own combat style and ab
    `git clone https://github.com/FlxdeCat/monster-funter.git`
 2. Open the project in Unity (tested with Unity version `2021.x` or newer).  
 3. Load the main scene and hit **Play** to start your adventure.
-4. 
